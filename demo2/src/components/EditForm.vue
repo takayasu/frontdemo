@@ -16,9 +16,7 @@
                     const headerLine = lines.shift();
                     console.log(headerLine);
 
-                    const peopleData = lines.filter(line => {
-                        return !(line === '');
-                    }).map((line) => {
+                    const peopleData = lines.filter(line => !(line === '')).map((line) => {
                         const peopleLine = line.split(',');
                         return {
                             firstName: peopleLine[2],
