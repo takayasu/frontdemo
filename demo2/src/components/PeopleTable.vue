@@ -1,7 +1,7 @@
 <template>
     <el-table
             ref="multipleTable"
-            :data="tableData"
+            :data="peopleData"
             stripe
             style="width: 60%; margin: auto"
             >
@@ -44,6 +44,12 @@
                         email: 'データ2ｰメール'
                     }
                 ]
+            }
+        },
+        computed: {
+            peopleData(){
+                console.log(this.$store.state);
+                return this.$store.state.peopledata;
             }
         }
     }

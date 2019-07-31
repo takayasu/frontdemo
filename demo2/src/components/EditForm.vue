@@ -9,6 +9,8 @@
             fileAdd(e) {
                 const files = e.target.files || e.dataTransfer.files;
                 const reader = new FileReader();
+                const editForm = this;
+
                 reader.onload = event => {
                     const lines = event.target.result.split(/\r\n|\n/);
                     const headerLine = lines.shift();
@@ -25,6 +27,10 @@
                         }
                     });
                     console.log(peopleData);
+                    const promise = editForm.$store.dispatch('add',peopleData);
+                    promise.then((result) => {
+                        console.log('Dispatch:',result);
+                    });
                 };
 
                 reader.readAsText(files[0]);
